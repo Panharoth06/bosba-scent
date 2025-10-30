@@ -9,12 +9,9 @@ export default function HomePage() {
       <main className="min-h-screen bg-[#FAFAF8] text-primary">
         {/* Hero Section */}
         <HeroSection />
-
         <BrandDisplay />
-
         {/* Product Section */}
         <DisplayProducts />
-
         {/* Minimal Footer */}
         <Footer />
       </main>
