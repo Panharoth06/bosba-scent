@@ -129,7 +129,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   return (
     <div
-      className="h-[20vh] md:h-[50vh] flex items-center justify-center w-full"
+      className="h-[20vh] md:h-[30vh] lg:h-[50vh] flex items-center justify-center w-full"
       style={{ visibility: ready ? "visible" : "hidden", cursor: cursorStyle }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -137,7 +137,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
       onPointerLeave={endDrag}
     >
       <svg
-        className="select-none w-full overflow-visible block aspect-100/12 text-[6rem] font-semibold uppercase leading-none bg-primary/5"
+        className="select-none w-full overflow-visible block aspect-100/12 text-[6rem] font-semibold uppercase leading-none bg-primary"
         viewBox="0 0 1440 120"
       >
         <text
@@ -159,7 +159,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
         {ready && (
           <text
             xmlSpace="preserve"
-            className={`fill-primary md:text-4xl font-serif ${className ?? ""}`}
+            className={`fill-white md:text-4xl font-medium font-serif ${className ?? ""}`}
           >
             <textPath
               ref={textPathRef}

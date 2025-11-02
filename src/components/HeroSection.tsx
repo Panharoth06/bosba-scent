@@ -1,3 +1,4 @@
+import AnimatedContent from "./AnimatedContent";
 import { Button } from "./ui/button";
 
 const HeroSection = () => {
@@ -22,14 +23,19 @@ const HeroSection = () => {
           Scents that whisper, not shout.
         </h1>
         <p className="text-lg md:text-xl text-primary/70 max-w-2xl mx-auto text-pretty">
-          Crafted quietly from nature’s calm.
+          Crafted quietly from nature's calm — scents designed to breathe with you.
         </p>
-        <Button
-          size="lg"
-          className="bg-primary hover:bg-primary/90 text-[#FAFAF8] px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg"
+        <AnimatedContent
+          distance={50}
         >
-          Breath In
-        </Button>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-[#FAFAF8] px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg"
+          >
+            Shop Collection
+          </Button>
+
+        </AnimatedContent>
       </div>
     </section>
   );

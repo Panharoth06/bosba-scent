@@ -6,7 +6,7 @@ const BrandDisplay = () => {
       <CurvedLoop
         marqueeText="BOSBA SCENT ✦ BOSBA SCENT ✦ BOSBA SCENT ✦ BOSBA SCENT ✦ BOSBA SCENT ✦ BOSBA SCENT ✦ "
         speed={0.5}
-        interactive={true}
+        interactive={false}
         curveAmount={0}
       />
     </section>

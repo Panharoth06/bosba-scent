@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Product } from "@/types/product-type";
-import { Badge } from "@/components/ui/badge";
 import { ShoppingBag } from "lucide-react";
 
 interface ProductCardProps {
@@ -65,7 +64,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               </span>
             </div>
           ) : (
-            <p className="text-[#c19a6b] text-lg font-bold">${product.price}</p>
+            <p className="text-primary/70 text-lg font-bold">${product.price}</p>
           )}
         </div>
 
