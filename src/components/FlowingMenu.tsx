@@ -116,7 +116,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, icon }) => {
         onMouseLeave={leave}
         onTouchStart={touchStart}
         onTouchEnd={touchEnd}
-        className="flex items-center justify-center h-full relative z-10 cursor-pointer uppercase no-underline font-medium text-[4vh] text-white hover:text-transparent transition-colors"
+        className="px-6 md:px-12 lg:px-24 flex items-center h-full relative z-10 cursor-pointer uppercase no-underline font-medium text-[4vh] text-white hover:text-transparent transition-colors"
         target='_blank'
       >
         {text}

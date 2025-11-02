@@ -1,6 +1,7 @@
-import AnimatedContent from "./AnimatedContent";
-import { Button } from "./ui/button";
+'use client'
 
+import { Button } from "./ui/button";
+import { motion } from "framer-motion"
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -25,8 +26,12 @@ const HeroSection = () => {
         <p className="text-lg md:text-xl text-primary/70 max-w-2xl mx-auto text-pretty">
           Crafted quietly from nature's calm — scents designed to breathe with you.
         </p>
-        <AnimatedContent
-          distance={50}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 0.5, delay: 0, ease: 'easeOut' }}
+          className='text-center'
         >
           <Button
             size="lg"
@@ -34,8 +39,8 @@ const HeroSection = () => {
           >
             Shop Collection
           </Button>
+        </motion.div>
 
-        </AnimatedContent>
       </div>
     </section>
   );

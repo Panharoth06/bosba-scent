@@ -2,7 +2,8 @@ import HeroSection from "@/components/HeroSection";
 import DisplayProducts from "@/components/DisplayProducts";
 import BrandDisplay from "@/components/BrandDisplay";
 import Footer from "@/components/Footer";
-import BestSellling from "@/components/BestSellling";
+import BestSellingSection from "@/components/BestSellling";
+import CircularText from "@/components/CircularText";
 
 export default function HomePage() {
   return (
@@ -12,10 +13,17 @@ export default function HomePage() {
         <HeroSection />
         {/* brand display */}
         <BrandDisplay />
-        <BestSellling />
+        <BestSellingSection />
         {/* Product Section */}
         <DisplayProducts />
         {/* Minimal Footer */}
+        <div>
+        <CircularText
+          text=" BOSBA ✦ SCENT ✦ "
+          onHover="speedUp"
+          spinDuration={20}
+        />
+        </div>
         <Footer />
       </main>
     </div>
