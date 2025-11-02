@@ -8,10 +8,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 
 const gfsDidot = GFS_Didot({
   variable: "--font-gfs-didot",

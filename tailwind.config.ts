@@ -9,9 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#FAFAF8", // soft white background
-        primary: "#222222",    // soft charcoal for text/buttons
-        accent: "#C3A47E",     // muted gold for buttons/highlights
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "sans-serif"],

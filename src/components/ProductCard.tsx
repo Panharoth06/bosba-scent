@@ -12,7 +12,9 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const handleBuy = () => {
     const message = encodeURIComponent(
-      `Hi! I'm interested in buying "${product.name}" by ${product.brand} ($${product.price}).\nSize: ${product.size_ml}ml\nScent: ${product.scents.join(
+      `Hi! I'm interested in buying "${product.name}" by ${product.brand} ($${
+        product.price
+      }).\nSize: ${product.size_ml}ml\nScent: ${product.scents.join(
         ", "
       )}\n\nImage: ${window.location.origin}${product.images[0]}`
     );
@@ -22,7 +24,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-lg hover:shadow-xl transition p-5 w-72">
+    <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm transition p-5 w-72">
       {/* Image Section */}
       <div className="relative">
         <Image
@@ -44,29 +46,22 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Content */}
       <div className="mt-4 text-center">
         <h2 className="text-lg font-semibold">{product.name}</h2>
-        <p className="text-sm text-gray-500">{product.brand}</p>
 
         {/* Scents */}
-        <div className="flex flex-wrap justify-center gap-1 mt-2">
-          {product.scents.slice(0, 3).map((scent, index) => (
-            <Badge
-              key={index}
-              className="bg-[#f5efe6] text-[#8c7851] hover:bg-[#ede5da]"
-            >
-              {scent}
-            </Badge>
-          ))}
-        </div>
 
         {/* Price & Discount */}
-        <div className="mt-3">
+        <div className="mt-1">
           {product.is_discount ? (
             <div>
               <span className="text-gray-400 line-through mr-2 text-sm">
                 ${product.price}
               </span>
-              <span className="text-[#c19a6b] text-lg font-bold">
-                ${(product.price * (1 - product.discount_percentage / 100)).toFixed(2)}
+              <span className="text-primary/70 text-lg font-bold">
+                $
+                {(
+                  product.price *
+                  (1 - product.discount_percentage / 100)
+                ).toFixed(2)}
               </span>
             </div>
           ) : (
@@ -80,18 +75,15 @@ export default function ProductCard({ product }: ProductCardProps) {
         </p>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 mt-3 line-clamp-3">
-          {product.description}
-        </p>
 
         {/* Buy Button */}
         <button
           onClick={handleBuy}
           disabled={!product.is_available}
-          className={`mt-4 w-full flex items-center justify-center gap-2 rounded-xl py-2 font-medium transition
+          className={`mt-4 w-full flex items-center justify-center gap-2 rounded-lg py-2 transition
             ${
               product.is_available
-                ? "bg-[#c19a6b] text-white hover:bg-[#a98255]"
+                ? "bg-primary text-white/90 hover:bg-primary/90"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
         >
