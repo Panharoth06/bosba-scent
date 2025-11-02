@@ -45,7 +45,7 @@ export default function HomePage() {
       <main className="min-h-screen bg-[#FAFAF8] text-[#222222]">
         {/* Hero Section */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          {/* ✅ Video background — now loops and is muted for autoplay compliance */}
+          {/* Video background  */}
           <video
             src="/videos/bosba-sample-video.mp4"
             autoPlay
@@ -87,18 +87,9 @@ export default function HomePage() {
 
         {/* Minimal Footer */}
         <footer className="text-center py-10 text-sm text-[#222222]/70 border-t border-[#222222]/10">
-          <p>© {new Date().getFullYear()} Bosba Scent — Crafted in Phnom Penh.</p>
+          <p>© {new Date().getFullYear()} Bosba Scent — Crafted in Phnom Penh, Cambodia.</p>
         </footer>
       </main>
     </div>
   );
 }
-
-
-// <main className="min-h-screen bg-[#fff8f0] dark:bg-neutral-950 py-10">
-//   <h1 className="text-3xl font-bold text-center mb-10">Perfume Haven</h1>
-//   <div className="min-h-screen"></div>
-//   <div className="flex flex-wrap justify-center gap-8">
-
-//   </div>
-// </main>
