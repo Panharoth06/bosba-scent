@@ -17,7 +17,7 @@ export interface Product {
   images: string[]; 
   // Array of image URLs for displaying the product (main image + gallery)
 
-  scents: string[]; 
+  scents: { name: string; intensity: number }[];
   // List of scent types or notes (e.g., ["Woody", "Citrus", "Spicy"])
 
   is_discount: boolean; 
@@ -43,4 +43,10 @@ export interface Product {
 
   seller_telegram: string; 
   // Telegram username or link for buyers to contact the seller directly
+  customer_feedback: CustomerFeedback[];
+}
+
+interface CustomerFeedback {
+  customer_name?: string;
+  feedback: string
 }

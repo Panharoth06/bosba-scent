@@ -35,7 +35,7 @@ const HeroSection = () => {
         >
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-[#FAFAF8] px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-[1.02] shadow-md hover:shadow-lg"
+            className="bg-primary hover:bg-primary/90 text-white/80 px-8 py-6 text-lg rounded-full transition-all duration-300 shadow-md hover:shadow-md cursor-pointer"
           >
             Shop Collection
           </Button>

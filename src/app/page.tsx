@@ -1,9 +1,9 @@
 import HeroSection from "@/components/HeroSection";
 import DisplayProducts from "@/components/DisplayProducts";
 import BrandDisplay from "@/components/BrandDisplay";
-import Footer from "@/components/Footer";
 import BestSellingSection from "@/components/BestSellling";
 import CircularText from "@/components/CircularText";
+import Footer from "@/components/Footer";
 
 export default function HomePage() {
   return (
@@ -24,8 +24,10 @@ export default function HomePage() {
           spinDuration={20}
         />
         </div>
-        <Footer />
       </main>
+      <footer>
+                <Footer />
+      </footer>
     </div>
   );
 }

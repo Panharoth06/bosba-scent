@@ -26,11 +26,9 @@ export const footerLinks = [
 
 const Footer = () => {
   return (
-    <footer>
-      <div style={{ height: '600px', position: 'relative' }}>
+      <div style={{ position: 'relative' }}>
         <FlowingMenu items={footerLinks} />
       </div>
-    </footer>
   );
 };
 

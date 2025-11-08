@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 import { Product } from "@/types/product-type";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, Eye } from "lucide-react";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+
   const handleBuy = () => {
     const message = encodeURIComponent(
-      `Hi! I'm interested in buying "${product.name}" by ${product.brand} ($${
-        product.price
+      `Hi! I'm interested in buying "${product.name}" by ${product.brand} ($${product.price
       }).\nSize: ${product.size_ml}ml\nScent: ${product.scents.join(
         ", "
       )}\n\nImage: ${window.location.origin}${product.images[0]}`
@@ -21,6 +23,12 @@ export default function ProductCard({ product }: ProductCardProps) {
     const telegramLink = `https://t.me/${product.seller_telegram}?text=${message}`;
     window.open(telegramLink, "_blank");
   };
+
+  const router = useRouter()
+
+  const handleViewDetails = (product_id: number) => {
+    router.push(`product-details/${product_id}`)
+  }
 
   return (
     <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm transition p-5 w-72">
@@ -46,16 +54,14 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="mt-4 text-center">
         <h2 className="text-lg font-semibold">{product.name}</h2>
 
-        {/* Scents */}
-
         {/* Price & Discount */}
         <div className="mt-1">
           {product.is_discount ? (
             <div>
-              <span className="text-gray-400 line-through mr-2 text-sm">
+              <span className="text-gray-500 line-through mr-2 text-sm">
                 ${product.price}
               </span>
-              <span className="text-primary/70 text-lg font-bold">
+              <span className="text-primary/90 text-lg font-bold">
                 $
                 {(
                   product.price *
@@ -64,7 +70,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               </span>
             </div>
           ) : (
-            <p className="text-primary/70 text-lg font-bold">${product.price}</p>
+            <p className="text-primary/90 text-lg font-bold">${product.price}</p>
           )}
         </div>
 
@@ -73,22 +79,30 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.gender} • {product.size_ml}ml
         </p>
 
-        {/* Description */}
-
         {/* Buy Button */}
-        <button
-          onClick={handleBuy}
-          disabled={!product.is_available}
-          className={`mt-4 w-full flex items-center justify-center gap-2 rounded-lg py-2 transition
-            ${
-              product.is_available
-                ? "bg-primary text-white/90 hover:bg-primary/90"
+        <div className="grid grid-cols-1">
+          <Button
+            onClick={handleBuy}
+            disabled={!product.is_available}
+            className={`mt-4 flex items-center justify-center gap-2 rounded-lg py-2 transition
+            ${product.is_available
+                ? "bg-primary text-white/90 hover:bg-primary/90 cursor-pointer"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
-            }`}
-        >
-          <ShoppingBag size={18} />
-          {product.is_available ? "Buy on Telegram" : "Out of Stock"}
-        </button>
+              }`}
+          >
+            <ShoppingBag size={18} />
+            {product.is_available ? "Buy on Telegram" : "Out of Stock"}
+          </Button>
+          <Button
+            variant={"outline"}
+            onClick={() => handleViewDetails(product.id)}
+            className="mt-2 rounded-lg flex items-center justify-center gap-2 py-2 hover:cursor-pointer"
+          >
+            <Eye/>
+            View Details
+          </Button>
+
+        </div>
       </div>
     </div>
   );

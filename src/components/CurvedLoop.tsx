@@ -38,6 +38,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const pathRef = useRef<SVGPathElement | null>(null);
   const [spacing, setSpacing] = useState(0);
   const [offset, setOffset] = useState(0);
+  const [totalText, setTotalText] = useState("");
   const uid = useId();
   const pathId = `curve-${uid}`;
   const pathD = `M-100,80 Q500,${80 + curveAmount} 1540,80`;
@@ -47,12 +48,20 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const dirRef = useRef<"left" | "right">(direction);
   const velRef = useRef(0);
 
-  const textLength = spacing;
-  const totalText = textLength
-    ? Array(Math.ceil(1800 / textLength) + 2)
-        .fill(text)
-        .join("")
-    : text;
+  useEffect(() => {
+    if (pathRef.current) {
+      const pathLength = pathRef.current.getTotalLength(); 
+      if (measureRef.current) {
+        const txtLen = measureRef.current.getComputedTextLength();
+        setSpacing(txtLen);
+
+        const repeatCount = Math.ceil(pathLength / txtLen) + 3; 
+        const filledText = Array(repeatCount).fill(text).join("");
+        setTotalText(filledText);
+      }
+    }
+  }, [text, curveAmount]);
+
   const ready = spacing > 0;
 
   useEffect(() => {
@@ -129,7 +138,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
 
   return (
     <div
-      className="h-[20vh] md:h-[30vh] lg:h-[50vh] flex items-center justify-center w-full"
+      className="flex items-center justify-center w-full"
       style={{ visibility: ready ? "visible" : "hidden", cursor: cursorStyle }}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
