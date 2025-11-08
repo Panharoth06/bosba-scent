@@ -19,6 +19,7 @@ export function NavbarComponent() {
     { name: "Products", link: "#products" },
   ];
 
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (

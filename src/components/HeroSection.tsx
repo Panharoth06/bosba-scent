@@ -3,6 +3,14 @@
 import { Button } from "./ui/button";
 import { motion } from "framer-motion"
 const HeroSection = () => {
+
+  const scrollToSection = (selector: string) => {
+    const element = document.querySelector(selector);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video background  */}
@@ -35,10 +43,12 @@ const HeroSection = () => {
         >
           <Button
             size="lg"
+            onClick={() => scrollToSection('#products')}
             className="bg-primary hover:bg-primary/90 text-white/80 px-8 py-6 text-lg rounded-full transition-all duration-300 shadow-md hover:shadow-md cursor-pointer"
           >
             Shop Collection
           </Button>
+
         </motion.div>
 
       </div>

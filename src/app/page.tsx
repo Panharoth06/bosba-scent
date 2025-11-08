@@ -10,23 +10,30 @@ export default function HomePage() {
     <div>
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <HeroSection />
+        <div id="home">
+          <HeroSection />
+        </div>
         {/* brand display */}
         <BrandDisplay />
-        <BestSellingSection />
+        <div id="best-selling">
+          <BestSellingSection />
+        </div>
         {/* Product Section */}
-        <DisplayProducts />
+        <div id="products">
+          <DisplayProducts />
+
+        </div>
         {/* Minimal Footer */}
         <div>
-        <CircularText
-          text=" BOSBA ✦ SCENT ✦ "
-          onHover="speedUp"
-          spinDuration={20}
-        />
+          <CircularText
+            text=" BOSBA ✦ SCENT ✦ "
+            onHover="speedUp"
+            spinDuration={20}
+          />
         </div>
       </main>
-      <footer>
-                <Footer />
+      <footer className="mt-20">
+        <Footer />
       </footer>
     </div>
   );

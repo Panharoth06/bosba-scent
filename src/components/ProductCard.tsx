@@ -31,15 +31,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="bg-white dark:bg-neutral-900 rounded-2xl shadow-sm transition p-5 w-72">
+    <div className="bg-white rounded-2xl shadow-sm transition p-5 w-72">
       {/* Image Section */}
       <div className="relative">
         <Image
+          onClick={() => handleViewDetails(product.id)}
           src={product.images[0]}
           alt={product.name}
           width={400}
           height={400}
-          className="rounded-xl object-cover w-full h-64"
+          className="rounded-xl object-cover w-full h-64 hover:scale-[1.02] cursor-pointer transition-all duration-300"
         />
 
         {/* Discount Badge */}
@@ -98,7 +99,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             onClick={() => handleViewDetails(product.id)}
             className="mt-2 rounded-lg flex items-center justify-center gap-2 py-2 hover:cursor-pointer"
           >
-            <Eye/>
+            <Eye />
             View Details
           </Button>
 
